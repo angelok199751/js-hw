@@ -3,9 +3,9 @@ const maxAge = 60;
 //let age = "10"; //Вывело You don't have access cause your age is 10 It's less then 18
 let age = "ten"; //Вывело This is not a number. Enter age as a number
 if(isNaN(age)) {
-    let age = typeof Number
     console.log("This is not a number. Enter age as a number");  
 } else {
+   age = +age;  
     if (age < minAge) {
         console.log("You don't have access cause your age is " + age + " It's less then " + minAge);  
     } 

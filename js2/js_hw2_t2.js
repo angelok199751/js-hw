@@ -8,7 +8,7 @@ const maxAge = 60;
 //let age = 60; // ВЫВЕЛО Technical work
 //let age = 61; // ВЫВЕЛО Keep calm and look Culture channel
 let age = "JUST_STRING"; //Вывело Incorrect data type
-if(isNaN(age)) {
+if(typeof age !== 'number') {
     console.log("Incorrect data type");  
 } else {
     if (age < minAge) {
