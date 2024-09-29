@@ -11,8 +11,5 @@ for (let i = 0; i < lowerCasemyBakesPizzas.length; i++) {
     if (!lowerCasecompetitorPizzas.includes(lowerCasemyBakesPizzas[i])) {
         diffPizzas.push(lowerCasemyBakesPizzas[i]);
     }
-
 }
 console.log(diffPizzas.length ? diffPizzas : null);
- 
-
