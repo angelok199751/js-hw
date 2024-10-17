@@ -21,7 +21,7 @@ arr.forEach(arr => {
 });
 
 // task 1.2
-const newArray = arr.map(numbers => numbers - arr.length);
+const newArray = arr.map((numbers, idx, originalArray) => numbers - originalArray.length);
 console.log(newArray);
 
 // task 1.3
