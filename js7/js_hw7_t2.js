@@ -10,6 +10,7 @@ const characters = [
 //     Объект должен иметь поля name (string) и age (number)
 
 function addCharacter(character = {}) {
+  if ('name' in character && 'age' in character && typeof character['name'] === 'string' && typeof character['age'] === 'number') 
      characters.push(character);
     } 
 
