@@ -23,19 +23,18 @@ class Employee {
         return this._firstName
     }
     set firstName(newFirstName) {
-        if (typeof newFirstName !== 'string') {
-            throw new Error("First name must be a string");
+        if (
+            typeof newFirstName !== 'string' ||
+            newFirstName.length < 2 ||
+            newFirstName.length > 50 ||
+            !/^[A-Za-z]+$/.test(newFirstName)
+        ) {
+            throw new Error(
+                `First name must be a string, at least 2 characters long, ` +
+                `no longer than 50 characters, and contain only Latin letters.`
+            );
         }
-        if (newFirstName.length < 2) {
-            throw new Error("First name must be at least 2 characters long");
-        }
-        if (newFirstName.length > 50) {
-            throw new Error("First name must be no longer than 50 characters");
-        }
-        if (!/^[A-Za-z]+$/.test(newFirstName)) {
-            throw new Error("First name must contain only Latin letters");
-        }
-        this._firstName = newFirstName
+        this._firstName = newFirstName;
     }
 
     get lastName() {
@@ -44,53 +43,52 @@ class Employee {
     }
 
     set lastName(newLastName) {
-        if (typeof newLastName !== 'string') {
-            throw new Error("Last name must be a string");
+        if (
+            typeof newLastName !== 'string' ||
+            newLastName.length < 2 ||
+            newLastName.length > 50 ||
+            !/^[A-Za-z]+$/.test(newLastName)
+        ) {
+            throw new Error(
+                "Last name must be a string, at least 2 characters long, " +
+                "no longer than 50 characters, and contain only Latin letters."
+            );
         }
-        if (newLastName.length < 2) {
-            throw new Error("Last name must be at least 2 characters long");
-        }
-        if (newLastName.length > 50) {
-            throw new Error("Last name must be no longer than 50 characters");
-        }
-        if (!/^[A-Za-z]+$/.test(newLastName)) {
-            throw new Error("Last name must contain only Latin letters");
-        }
-        this._lastName = newLastName
+        this._lastName = newLastName;
     }
-
+    
     get profession() {
         return this._profession
     }
 
-    set profession(newProfession){
-        if(typeof newProfession !== "string") {
-            throw new Error ("Profession must be a sting")
+    set profession(newProfession) {
+        if (
+            typeof newProfession !== "string" ||
+            newProfession.length === 0 ||
+            !/^[A-Za-z\s]+$/.test(newProfession)
+        ) {
+            throw new Error(
+                "Profession must be a string, should not be empty, and contain only Latin letters and spaces."
+            );
         }
-        if(newProfession.length === 0) {
-            throw new Error ("Profession should not be empty")
-        }
-        if (!/^[A-Za-z\s]+$/.test(newProfession)) {
-            throw new Error("Profession must contain only Latin letters and spaces");
-        }
-        this._profession = newProfession
+        this._profession = newProfession;
     }
 
     get salary() {
         return this.#salary
     }
 
-    set salary(newSalary) {        
-        if ((typeof newSalary !== "number")){
-            throw new Error ("Salary must be a number")
+    set salary(newSalary) {
+        if (
+            (typeof newSalary !== "number" ||
+            newSalary < 0 ||
+            newSalary > 10000)
+        ) {
+            throw new Error(
+                "Salary must be a number, must be positive, and not greater than 10000."
+            );
         }
-        if (newSalary < 0) {
-            throw new Error ("Salary must be a positive number")
-        }
-        if (newSalary > 10000) {
-            throw new Error ("Salary must not be greater than 10000")
-        }
-        this.#salary = newSalary
+        this.#salary = newSalary;
     }
 
     getFullName() {
@@ -135,7 +133,7 @@ class Company {
 
     findEmployeeByName(firstName = ''){
         const output = this.#employees.find(employee => employee.firstName === firstName);
-        if (!output) return "Such an employee not found";
+        if (!output) return `Employee with name: "${firstName}" not found`;
         return output
     }
 

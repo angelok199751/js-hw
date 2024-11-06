@@ -15,12 +15,11 @@ get firstName() {
   }
 
 set firstName(firstName) {
-    if (typeof firstName !== "string") {
-      throw new Error("Invalid firstName");
-    } else {
-      this._firstName = firstName;
-    }
+  if (typeof firstName !== "string") {
+    throw new Error("Invalid firstName");
   }
+   this._firstName = firstName;
+} 
 
 get lastName() {
     return this._lastName;
@@ -29,9 +28,8 @@ get lastName() {
 set lastName(lastName) {
     if (typeof lastName !== "string") {
       throw new Error("Invalid lastName");
-    } else {
+    } 
       this._lastName = lastName;
-    }
   }
 
 get profession() {
@@ -41,9 +39,9 @@ get profession() {
 set profession(profession) {
     if (typeof profession !== "string") {
       throw new Error("Invalid profession");
-    } else {
-      this._profession = profession;
     }
+    this._profession = profession;
+    
   }
 
 get salary() {
@@ -89,9 +87,8 @@ get title() {
 set title(title) {
     if (typeof title !== "string") {
       throw new Error("Invalid firstName");
-    } else {
-      this._title = title;
-    }
+    } 
+    this._title = title;
   }
 
 get phone() {
@@ -101,9 +98,8 @@ get phone() {
 set phone(phone) {
     if (typeof phone !== "number") {
       throw new Error("Invalid phone");
-    } else {
-      this._phone = phone;
     }
+     this._phone = phone;
   }
 
 get address() {
@@ -113,9 +109,8 @@ get address() {
 set address(address) {
     if (typeof address !== "string") {
       throw new Error("Invalid profession");
-    } else {
+    } 
       this._address = address;
-    }
   }
 
 // t7

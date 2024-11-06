@@ -41,15 +41,15 @@ abstract class Employee implements IPerson {
 //       Реализовывать метод getDetails(), который должен выводить полную информацию об объекте вида:
 //         'My name is Elena TSovna, I am software developer with 6 years of experience in TypeScript and 6000$ salary' (пример для девелопера)
 
-type prefered = "scrum" | "kanban";
-type programmingLanguage = "js" | "ts" | "java" | "python";
+type Prefered = "scrum" | "kanban";
+type ProgrammingLanguage = "js" | "ts" | "java" | "python";
 
 class Manager extends Employee {
     constructor (
         public name: string,
         public surname: string,
         public experienceYears: number,
-        public prefered: prefered
+        public prefered: Prefered
     ) {
         super(name, surname, experienceYears);
         this.calculateSalary();
@@ -66,7 +66,7 @@ class Developer extends Employee {
         public name: string,
         public surname: string,
         public experienceYears: number,
-        public programmingLanguage: programmingLanguage
+        public programmingLanguage: ProgrammingLanguage
     ) {
         super(name, surname, experienceYears);
         this.calculateSalary();
